@@ -1,20 +1,16 @@
 backend:
-  name: github
-  repo: juchan0426-boop/kimproduction.github.io
+  name: git-gateway
   branch: main
-  base_url: https://api.netlify.com
-  auth_endpoint: auth
 
-media_folder: "images/uploads"
-public_folder: "/images/uploads"
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
 
 collections:
   - name: "posts"
-    label: "게시물"
+    label: "게시글"
     folder: "posts"
     create: true
-    slug: "{{slug}}"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - { label: "제목", name: "title", widget: "string" }
-      - { label: "날짜", name: "date", widget: "datetime" }
       - { label: "본문", name: "body", widget: "markdown" }
