@@ -1,16 +1,20 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: juchan0426/kimproduction.github.io # 본인 깃허브 저장소
   branch: main
+  auth_scope: repo
+  app_id: Ov23lidBF8L0M0sizs7m
+  auth_endpoint: https://netlify-cms-auth-proxy.herokuapp.com/auth
 
-media_folder: "assets/uploads"
-public_folder: "/assets/uploads"
+media_folder: "assets"
+public_folder: "/assets"
 
 collections:
   - name: "posts"
-    label: "게시글"
-    folder: "posts"
+    label: "Posts"
+    folder: "_posts"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - { label: "제목", name: "title", widget: "string" }
-      - { label: "본문", name: "body", widget: "markdown" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
