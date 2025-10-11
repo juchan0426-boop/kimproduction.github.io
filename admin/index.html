@@ -2,49 +2,44 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>KimProduction CMS</title>
-  <!-- Decap CMS 스타일 -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/netlify-cms@2.10.192/dist/netlify-cms.css">
+  <!-- Decap CMS CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/netlify-cms@2.10.192/dist/netlify-cms.css">
 </head>
 <body>
-  <!-- CMS 루트 컨테이너 -->
-  <div id="nc-root"></div>
-
-  <!-- Decap CMS 스크립트 -->
-  <script src="https://cdn.jsdelivr.net/npm/netlify-cms@2.10.192/dist/netlify-cms.js"></script>
-
-  <!-- CMS 설정 -->
+  <h1 style="text-align:center; margin-top:50px;">KimProduction CMS</h1>
+  
+  <!-- Decap CMS Script -->
+  <script src="https://unpkg.com/netlify-cms@2.10.192/dist/netlify-cms.js"></script>
   <script>
-    window.CMS_MANUAL_INIT = true;
-
-    const config = {
-      backend: {
-        name: "github",
-        repo: "juchan0426/kimproduction.github.io",
-        branch: "main",
-        auth_scope: "repo",
-      },
-      load_config_file: false,
-      media_folder: "assets/uploads",
-      public_folder: "/assets/uploads",
-      site_url: "/",
-      collections: [
-        {
-          name: "posts",
-          label: "Posts",
-          folder: "posts",
-          create: true,
-          slug: "{{slug}}",
-          fields: [
-            { name: "title", label: "Title", widget: "string" },
-            { name: "body", label: "Body", widget: "markdown" }
-          ]
-        }
-      ]
-    };
-
-    CMS.init({ config });
+    CMS.init({
+      config: {
+        backend: {
+          name: "github",
+          repo: "juchan0426/kimproduction.github.io", // 본인 깃허브 저장소
+          branch: "main", // 기본 브랜치
+          auth_scope: "repo",
+          app_id: "Ov23lidBF8L0M0sizs7m ", // 여기 본인 GitHub OAuth Client ID 입력
+          auth_endpoint: "https://netlify-cms-auth-proxy.herokuapp.com/auth"
+        },
+        site_url: "https://kimproduction.kro.kr",
+        media_folder: "assets",
+        public_folder: "/assets",
+        collections: [
+          {
+            name: "posts",
+            label: "Posts",
+            folder: "_posts",
+            create: true,
+            slug: "{{year}}-{{month}}-{{day}}-{{slug}}",
+            fields: [
+              { label: "Title", name: "title", widget: "string" },
+              { label: "Body", name: "body", widget: "markdown" }
+            ]
+          }
+        ]
+      }
+    });
   </script>
 </body>
 </html>
