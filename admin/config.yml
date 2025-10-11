@@ -2,6 +2,8 @@ backend:
   name: github
   repo: juchan0426-boop/kimproduction.github.io
   branch: main
+  auth_type: implicit
+  base_url: https://api.github.com
 
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
