@@ -1,23 +1,14 @@
-# _config.yml
-backend:
-  name: github
-  repo: juchan0426/kimproduction.github.io  # 본인 저장소
-  branch: main  # 기본 브랜치
-  auth_scope: repo
-  app_id: Ov23lidBF8L0M0sizs7m  # 본인 GitHub OAuth Client ID
-  auth_endpoint: https://netlify-cms-auth-proxy.herokuapp.com/auth
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>KimProduction CMS</title>
+  <link rel="stylesheet" href="https://unpkg.com/netlify-cms@2.15.72/dist/netlify-cms.css">
+</head>
+<body>
+  <h1 style="text-align:center; margin-top:50px;">KimProduction CMS</h1>
 
-media_folder: "assets"        # CMS에서 업로드된 파일 저장 위치
-public_folder: "/assets"      # 웹에서 접근 가능한 경로
-
-site_url: "https://kimproduction.kro.kr"
-
-collections:
-  - name: "posts"              # 컬렉션 이름 (중복 X)
-    label: "Posts"             # CMS UI에서 표시되는 이름
-    folder: "_posts"           # 마크다운 파일이 저장되는 폴더
-    create: true               # 새 글 생성 가능
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # 파일 이름 형식
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Body", name: "body", widget: "markdown" }
+  <!-- Netlify CMS Script -->
+  <script src="https://unpkg.com/netlify-cms@2.15.72/dist/netlify-cms.js"></script>
+</body>
+</html>
