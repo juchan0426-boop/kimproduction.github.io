@@ -3,12 +3,17 @@
   <head>
     <meta charset="utf-8" />
     <title>Admin</title>
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   </head>
   <body>
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
     <script>
-      document.addEventListener("DOMContentLoaded", function() {
-        window.CMS.init();
+      // decap-cms.js가 로드된 뒤 실행되도록 보장
+      window.addEventListener("load", function () {
+        if (window.CMS) {
+          window.CMS.init();
+        } else {
+          console.error("CMS is not defined — decap-cms.js not loaded properly");
+        }
       });
     </script>
   </body>
