@@ -5,14 +5,17 @@
     <title>Admin</title>
   </head>
   <body>
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <!-- Decap CMS 스크립트가 먼저 로드 -->
+    <script src="https://unpkg.com/decap-cms@latest/dist/decap-cms.js"></script>
+
+    <!-- 모든 스크립트 로드 완료 후 CMS 실행 -->
     <script>
-      // decap-cms.js가 로드된 뒤 실행되도록 보장
-      window.addEventListener("load", function () {
+      window.addEventListener("load", () => {
         if (window.CMS) {
           window.CMS.init();
+          console.log("✅ Decap CMS loaded successfully");
         } else {
-          console.error("CMS is not defined — decap-cms.js not loaded properly");
+          console.error("❌ CMS not defined — decap-cms.js failed to load");
         }
       });
     </script>
