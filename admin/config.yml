@@ -1,54 +1,21 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <title>KimProduction CMS</title>
-  <!-- Netlify/Decap CMS CSS (버전 통일) -->
-  <link rel="stylesheet" href="https://unpkg.com/netlify-cms@2.15.72/dist/netlify-cms.css">
-  <style>
-    body { font-family: sans-serif; background: #f8f9fa; }
-    h1 { text-align: center; margin-top: 50px; }
-  </style>
-</head>
-<body>
-  <h1>KimProduction CMS</h1>
+backend:
+  name: github
+  repo: juchan0426-boop/kimproduction.github.io
+  branch: main
+  auth_scope: repo
+  app_id: Ov23lidBF8L0M0sizs7m
+  auth_endpoint: https://netlify-cms-auth-proxy.herokuapp.com/auth
 
-  <!-- CMS가 붙을 컨테이너 -->
-  <div id="cms-root"></div>
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
 
-  <!-- Netlify/Decap CMS JS (버전 통일) -->
-  <script src="https://unpkg.com/netlify-cms@2.15.72/dist/netlify-cms.js"></script>
-  <script>
-    CMS.init({
-      config: {
-        backend: {
-          name: "github",
-          repo: "juchan0426/kimproduction.github.io", // 깃허브 저장소
-          branch: "main", // 기본 브랜치
-          auth_scope: "repo",
-          app_id: "Ov23lidBF8L0M0sizs7m", // GitHub OAuth Client ID
-          auth_endpoint: "https://netlify-cms-auth-proxy.herokuapp.com/auth"
-        },
-        site_url: "https://kimproduction.kro.kr",
-        media_folder: "images/uploads",
-        public_folder: "/images/uploads",
-        collections: [
-          {
-            name: "posts",
-            label: "게시물",
-            folder: "posts",
-            create: true,
-            slug: "{{slug}}",
-            fields: [
-              { label: "제목", name: "title", widget: "string" },
-              { label: "날짜", name: "date", widget: "datetime" },
-              { label: "본문", name: "body", widget: "markdown" }
-            ]
-          }
-        ]
-      },
-      root: "#cms-root" // CMS가 붙을 div 지정
-    });
-  </script>
-</body>
-</html>
+collections:
+  - name: "posts"
+    label: "게시물"
+    folder: "posts"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "제목", name: "title", widget: "string" }
+      - { label: "날짜", name: "date", widget: "datetime" }
+      - { label: "본문", name: "body", widget: "markdown" }
