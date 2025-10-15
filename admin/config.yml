@@ -2,6 +2,9 @@ backend:
   name: github
   repo: juchan0426-boop/kimproduction.github.io
   branch: main
+  auth_scope: repo
+  app_id: "Ov23lidBF8L0M0sizs7m"
+  auth_endpoint: "https://netlify-cms-auth-proxy.herokuapp.com/auth"
 
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
