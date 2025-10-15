@@ -1,21 +1,50 @@
-backend:
-  name: github
-  repo: juchan0426/kimproduction.github.io
-  branch: main
-  auth_scope: repo
-  app_id: "Ov23lidBF8L0M0sizs7m"
-  auth_endpoint: "https://netlify-cms-auth-proxy.herokuapp.com/auth"
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>KimProduction CMS</title>
+  <link rel="stylesheet" href="https://unpkg.com/netlify-cms@2.15.72/dist/netlify-cms.css">
+</head>
+<body>
+  <h1 style="text-align:center; margin-top:50px;">KimProduction CMS</h1>
 
-media_folder: "images/uploads"
-public_folder: "/images/uploads"
+  <!-- CMS가 붙을 영역 -->
+  <div id="cms-root"></div>
 
-collections:
-  - name: "posts"
-    label: "게시물"
-    folder: "posts"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "제목", name: "title", widget: "string" }
-      - { label: "날짜", name: "date", widget: "datetime" }
-      - { label: "본문", name: "body", widget: "markdown" }
+  <script src="https://unpkg.com/netlify-cms@2.15.72/dist/netlify-cms.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      CMS.init({
+        root: "#cms-root",
+        config: {
+          backend: {
+            name: "github",
+            repo: "juchan0426-boop/kimproduction.github.io", // 본인 저장소
+            branch: "main",
+            auth_scope: "repo",
+            app_id: "Ov23lidBF8L0M0sizs7m",
+            auth_endpoint: "https://netlify-cms-auth-proxy.herokuapp.com/auth"
+          },
+          site_url: "https://kimproduction.kro.kr",
+          media_folder: "images/uploads",
+          public_folder: "/images/uploads",
+          collections: [
+            {
+              name: "posts",
+              label: "게시물",
+              folder: "posts",
+              create: true,
+              slug: "{{slug}}",
+              fields: [
+                { label: "제목", name: "title", widget: "string" },
+                { label: "날짜", name: "date", widget: "datetime" },
+                { label: "본문", name: "body", widget: "markdown" }
+              ]
+            }
+          ]
+        }
+      });
+    });
+  </script>
+</body>
+</html>
