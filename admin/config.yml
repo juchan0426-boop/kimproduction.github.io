@@ -1,18 +1,20 @@
-backend:
-  name: github
-  repo: juchan0426-boop/kimproduction.github.io
-  branch: main
-
-media_folder: "images/uploads"
-public_folder: "/images/uploads"
-
-collections:
-  - name: "posts"
-    label: "게시물"
-    folder: "posts"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "제목", name: "title", widget: "string" }
-      - { label: "날짜", name: "date", widget: "datetime" }
-      - { label: "본문", name: "body", widget: "markdown" }
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Admin</title>
+  </head>
+  <body>
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <script>
+      // decap-cms.js가 로드된 뒤 실행되도록 보장
+      window.addEventListener("load", function () {
+        if (window.CMS) {
+          window.CMS.init();
+        } else {
+          console.error("CMS is not defined — decap-cms.js not loaded properly");
+        }
+      });
+    </script>
+  </body>
+</html>
