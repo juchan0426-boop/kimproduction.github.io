@@ -1,10 +1,9 @@
 backend:
   name: github
-  repo: juchan0426/kimproduction.github.io # 본인 저장소
+  repo: juchan0426-boop/kimproduction.github.io
   branch: main
-  auth_scope: repo
-  app_id: "Ov23lidBF8L0M0sizs7m" # 본인 GitHub OAuth Client ID
-  auth_endpoint: "https://netlify-cms-auth-proxy.herokuapp.com/auth"
+  base_url: https://www.kimproduction.kro.kr
+  auth_endpoint: /auth
 
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
